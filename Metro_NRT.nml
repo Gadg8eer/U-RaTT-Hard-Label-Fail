@@ -3,8 +3,8 @@ grf {
 	name: string(STR_GRF_NAME_SUBWAY);
 	desc: string(STR_GRF_DESCRIPTION_SUBWAY);
 	url:  string(STR_GRF_URL);
-	version: 1;
-	min_compatible_version: 0;
+	version: 2;
+	min_compatible_version: 2;
 			param 0 {
         param_gui {
             type: int;
@@ -360,7 +360,7 @@ switch (FEAT_TRAMTYPES, SELF, switch_NUA3_gui, param_gui) {							            //
 if (tramtype_available("NAA3") || loading_stage == LOADING_STAGE_RESERVE) {	
 	item(FEAT_TRAMTYPES, NAA3_tram, 45) {
 		property {
-			label:							"NAA3";
+			label:							"RAA3";
 			name: 							string(STR_STRING_2, string(STR_NAME_NAA3), string(STR_3RD_POWERED));
 			toolbar_caption: 				string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_TRAM), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_3RDR);
@@ -399,7 +399,7 @@ if (tramtype_available("NAA3") || loading_stage == LOADING_STAGE_RESERVE) {
 if (tramtype_available("NUA3") || loading_stage == LOADING_STAGE_RESERVE) {	
 	item(FEAT_TRAMTYPES, NUA3_tram, 46) {
 		property {
-			label:							"NUA3";
+			label:							"RAB3";
 			name: 							string(STR_STRING_2, string(STR_NAME_NUA3), string(STR_3RD_POWERED));
 			toolbar_caption: 				string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_TRAM), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_3RDR);
