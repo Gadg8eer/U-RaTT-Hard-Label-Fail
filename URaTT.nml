@@ -3,9 +3,16 @@ grf {
 	name: string(STR_GRF_NAME);
 	desc: string(STR_GRF_DESCRIPTION);
 	url:  string(STR_GRF_URL);
-	version: 4;
-	min_compatible_version: 1;
+	version: 5;
+	min_compatible_version: 5;
 	param 0 {
+	param_standardisation {
+			type: bool;
+			name: string(STR_PARAM_STANDARDISATION_NAME);
+			desc: string(STR_PARAM_STANDARDISATION_DESC);
+		}
+	}
+	param 1 {
         param_gui {
             type: int;
             name: string(STR_PARAM_GUI_NAME);
@@ -20,7 +27,7 @@ grf {
 			};
 		}
 	}
-	param 1 {
+	param 2 {
         param_road_available {
             type: int;
             name: string(STR_PARAM_ROAD_AVAILABLE_NAME);
@@ -34,7 +41,7 @@ grf {
 			};
 		}
 	}
-	param 2 {
+	param 3 {
         param_ordx_speed {
             type: int;
             name: string(STR_PARAM_ORDX_SPEED_NAME);
@@ -49,7 +56,7 @@ grf {
 			};
 		}
 	}
-	param 3 {
+	param 4 {
         param_ardx_speed {
             type: int;
             name: string(STR_PARAM_ARDX_SPEED_NAME);
@@ -66,7 +73,7 @@ grf {
  			};
 		}
 	}
-	param 4 {
+	param 5 {
         param_urdx_speed {
             type: int;
             name: string(STR_PARAM_URDX_SPEED_NAME);
@@ -82,7 +89,7 @@ grf {
 			};
 		}
 	}
-	param 5 {
+	param 6 {
         param_drdx_speed {
             type: int;
             name: string(STR_PARAM_DRDX_SPEED_NAME);
@@ -98,7 +105,7 @@ grf {
 			};
 		}
 	}
-	param 6 {
+	param 7 {
 	param_WRD0_speed {
 	    type: int;
 	    name: string(STR_PARAM_WRD0_SPEED_NAME);
@@ -111,7 +118,7 @@ grf {
 			};
 		}
 	}
-	param 7 {
+	param 8 {
         param_pedestrian_zone {
             type: int;
             name: string(STR_PEDESTRIAN_ZONE_NAME);
@@ -127,7 +134,7 @@ grf {
 			};
 		}
 	}			
-	param 8 {
+	param 9 {
         param_style {
             type: int;
             name: string(STR_PARAM_STYLE_NAME);
@@ -141,7 +148,7 @@ grf {
 			};
 		}
 	}
-	param 9 {
+	param 10 {
 	param_menu_text {
 	type: bool;
 	name: string(STR_PARAM_MENU_NAME);
@@ -149,7 +156,7 @@ grf {
 	def_value: 1;
 		}
 	}
-	param 10 {
+	param 11 {
 	param_disable {
 	type: bool;
 	name: string(STR_PARAM_DISABLE_NAME);
@@ -157,7 +164,7 @@ grf {
 	def_value: 0;
 		}
 	}
-	param 11 {
+	param 12 {
 	param_WRD1_speed {
 	    type: int;
 	    name: string(STR_PARAM_WRD1_SPEED_NAME);
@@ -4334,23 +4341,80 @@ switch (FEAT_ROADTYPES, SELF, switch_ROAD_NORMAL_tunnels, param_road_available) 
 //===========================================================
 //					ROAD (ROAD)
 //===========================================================
-	item(FEAT_ROADTYPES, ROAD_road, 0) {
-		property {
-			label:					"ROAD";
-			name: 					string(STR_NAME_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			introduces_roadtype_list:		["ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "DRD2"];
-			roadtype_flags:				bitmask(ROADTYPE_FLAG_HIDDEN);
-			speed_limit:				(speed_limit_ROAD) km/h;
-			sort_order:				0;
+if (param[0]) {
+	if (roadtype_available("DRD2") || loading_stage == LOADING_STAGE_RESERVE) {
+		item(FEAT_ROADTYPES, ROAD_road, 0) {
+			property {
+				label:                      ROAD";
+				powered_roadtype_list:      	[
+												"ROAD", "OLD_",
+												"RAaN", "RBaN", "RAAN", "RBAN", "RCAN",
+												"RABN", "RBBN", "RCBN", "RDBN", "REBN",
+												"RACN", "RBCN", "RAAE", "RABE", "RBBE",
+												"RCBE", "RDBE", "REBE", "IABN", "IBBN",
+												"ICBN", "IABE", "IBBE", "ICBE",
+												"JF01", "JF02", "JF03", "JF04", "JF05", "JF06", "JF07", "JF08", "JF09", "JF10",
+												"JF11", "JF12", "JF13", "JF14", "JF15", "JF16", "JF17", "JF18", "JF19", "JF20",
+												"JF21", "JF22", "JF23", "JF24",
+												"ACLK",
+												"AR11", "AR12", "AR13", "AR14",
+												"AR21", "AR22", "AR23", "AR24",
+												"AR31", "AR32", "AR33", "AR34",
+												"ELSP", "ALSP", "ELRD", "AR21",
+												"ELA1", "AR22", "ELA2", "AR24",
+												"ELA0",
+												"ALA0",
+												"ASP0", "ASP1", "ASP2",
+												"FUEL", "SAND",
+												"COBB", "COB2", "COB3", "COB4",
+												"BEAC", "HWAY", "DIRT", "SETT",
+												"ISR1", "ISR2",
+												"AUZ1", "AUZ2", "AUZ3", "AUZ4", "AUZ5", "AUZ6", "AUZ7", "AUZ8", "AUZ9", "AUZ0",
+												"AUZA", "AUZB", "AUZC", "AUZD", "AUZE", "AUZF", "AUZG", "AUZH", "AUZI", "AUZJ", "AUZK", "AUZL", "AUZM", "AUZY", "AUZZ",
+												"FWAY", "YARD", "COAL", "HAUL",
+												"OFFR",
+												"ORD0",	"ORD1",	"ORD2",	"ORD3",	"ORD4",
+												"SRD0",	"SRD1",	"SRD2",
+												"ARD0",	"ARD1",	"AER0",	"ARD2",	"ARD3",	"AER1",	"ARD4",	"ARD5",	"AER2",
+												"WRD0",	"WRD1",
+												"URD0",	"URD1",	"UER1",
+												"IRD0",	"IRD1",
+												"BIKE", "BRIC",
+												"NL30", "NL50", "NL5F", "NL60", "NL80", "NL10", "NL12",
+												"RAAS", "RABS", "RACS", "SMRT", "SMTS",
+												"pABP", "pABS", "PIPE"];
+				alternative_roadtype_list:		[
+												"RABN"
+												];
+				roadtype_flags:				 bitmask(ROADTYPE_FLAG_HIDDEN);
 			}
+		} else { //disable_item(FEAT_ROADTYPES, item_country_asphalt_road2, 0);
+	}
+} else {
+	if (roadtype_available("DRD2") || loading_stage == LOADING_STAGE_RESERVE) {
+		item(FEAT_ROADTYPES, ROAD_road, 0) {
+			property {
+				label:						"ROAD";
+				name: 							string(STR_NAME_ROAD);
+				powered_roadtype_list: 			[
+												"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+												"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+												"DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+												"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+												];
+				alternative_roadtype_list:		[
+												"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+												"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+												"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+												"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+												];
+				introduces_roadtype_list:		[
+												"ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "DRD2"
+												];
+				roadtype_flags:				bitmask(ROADTYPE_FLAG_HIDDEN);
+				speed_limit:				(speed_limit_ROAD) km/h;
+				sort_order:				0;
+				}
 	if (param_pedestrian_zone > 1) {
 		property {
 			powered_roadtype_list:			["DRD0"];
@@ -4377,26 +4441,45 @@ switch (FEAT_ROADTYPES, SELF, switch_ROAD_NORMAL_tunnels, param_road_available) 
 			}
 		}
 	}
+	} else { //disable_item(FEAT_ROADTYPES, ROAD_road, 0);
+}
+
 //===========================================================
 //					FIELD ROAD (ORD0)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, ORD0_road, 1) {
+		property {
+			label:					"RBaN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, ORD0_road, 1) {
+		property {
+			label:					"ORD0";
+		}
+	}
+}
+
 if (roadtype_available("ORD0") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, ORD0_road, 1) {
 		property {
-			label:					"ORD0";
+//			label:					"ORD0";
 			name: 					string(STR_NAME_ORD0);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+			powered_roadtype_list: 			[
+								
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
 								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
 			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
 			roadtype_flags:				bitmask(ROADTYPE_FLAG_NO_LEVEL_CROSSING, ROADTYPE_FLAG_NO_HOUSES);
 			construction_cost:			3;
 			maintenance_cost: 			3;
@@ -4426,10 +4509,24 @@ if (roadtype_available("ORD0") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //						FOREST DIRT ROAD (ORD1)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, ORD1_road, 2) {
+		property {
+			label:					"RCaN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, ORD1_road, 2) {
+		property {
+			label:					"ORD1";
+		}
+	}
+}
+
 if (roadtype_available("ORD1") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, ORD1_road, 2) {
 		property {
-			label:					"ORD1";
+//			label:					"ORD1";
 			name: 					string(STR_NAME_ORD1);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
@@ -4472,10 +4569,24 @@ if (roadtype_available("ORD1") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //						DIRT ROAD (ORD2)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, ORD0_road, 3) {
+		property {
+			label:					"RDaN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, ORD0_road, 3) {
+		property {
+			label:					"ORD2";
+		}
+	}
+}
+
 if (roadtype_available("ORD2") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, ORD2_road, 3) {
 		property {
-			label:					"ORD2";
+//			label:					"ORD2";
 			name: 					string(STR_NAME_ORD2);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_3, string(STR_NAME_ORD2), string(STR_CONSTRUCTION), string(STR_WHITE));
@@ -4509,10 +4620,24 @@ if (roadtype_available("ORD2") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //						SAND ROAD (ORD3)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, ORD3_road, 4) {
+		property {
+			label:					"REaN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, ORD3_road, 4) {
+		property {
+			label:					"ORD3";
+		}
+	}
+}
+
 if (roadtype_available("ORD3") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, ORD3_road, 4) {
 		property {
-			label:					"ORD3";
+//			label:					"ORD3";
 			name: 					string(STR_NAME_ORD3);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
@@ -4555,10 +4680,24 @@ if (roadtype_available("ORD3") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //						GRAVEL ROAD (ORD4)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, ORD4_road, 5) {
+		property {
+			label:					"RCAN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, ORD4_road, 5) {
+		property {
+			label:					"ORD4";
+		}
+	}
+}
+
 if (roadtype_available("ORD4") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, ORD4_road, 5) {
 		property {
-			label:					"ORD4";
+//			label:					"ORD4";
 			name: 					string(STR_NAME_ORD4);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
@@ -4601,10 +4740,24 @@ if (roadtype_available("ORD4") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //						PAVED STONE ROAD (SRD0)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, SRD0_road, 6) {
+		property {
+			label:					"REAN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, SRD0_road, 6) {
+		property {
+			label:					"SRD0";
+		}
+	}
+}
+
 if (roadtype_available("SRD0") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, SRD0_road, 6) {
 		property {
-			label:					"SRD0";
+//			label:					"SRD0";
 			name: 					string(STR_NAME_SRD0);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_3, string(STR_NAME_SRD0), string(STR_CONSTRUCTION), string(STR_WHITE));
@@ -4636,12 +4789,26 @@ if (roadtype_available("SRD0") || loading_stage == LOADING_STAGE_RESERVE) {
 		}
 	}
 //===========================================================
-//					CONCRETE ROAD (SRD1)
+//					CEMENT CONCRETE ROAD (SRD1)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, SRD1_road, 8) {
+		property {
+			label:					"RABN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, SRD1_road, 8) {
+		property {
+			label:					"SRD1";
+		}
+	}
+}
+
 if (roadtype_available("SRD1") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, SRD1_road, 8) {
 		property {
-			label:					"SRD1";
+//			label:					"SRD1";
 			name: 					string(STR_NAME_SRD1);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text:				string(STR_STRING_3, string(STR_NAME_SRD1), string(STR_CONSTRUCTION), string(STR_WHITE));
@@ -4676,10 +4843,24 @@ if (roadtype_available("SRD1") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					CONCRETE SLAB OF ROAD (SRD2)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, SRD2_road, 9) {
+		property {
+			label:					"RBBN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, SRD2_road, 9) {
+		property {
+			label:					"SRD2";
+		}
+	}
+}
+
 if (roadtype_available("SRD2") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, SRD2_road, 9) {
 		property {
-			label:					"SRD2";
+//			label:					"SRD2";
 			name: 					string(STR_NAME_SRD2);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
@@ -4723,10 +4904,24 @@ if (roadtype_available("SRD2") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					ASPHALT ROAD (ARD0)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, ARD0_road, 10) {
+		property {
+			label:					"RCBN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, ARD0_road, 10) {
+		property {
+			label:					"ARD0";
+		}
+	}
+}
+
 if (roadtype_available("ARD0") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, ARD0_road, 10) {
 		property {
-			label:					"ARD0";
+//			label:					"ARD0";
 			name: 					string(STR_STRING_2, string(STR_NAME_ARD0), string(STR_CLASS_C));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_4, string(STR_NAME_ARD0), string(STR_CONSTRUCTION), string(STR_CLASS_C), string(STR_WHITE));
@@ -4767,10 +4962,24 @@ if (roadtype_available("ARD0") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					ASPHALT ROAD W/ STRIPES (ARD1)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, ARD1_road, 12) {
+		property {
+			label:					"RACN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, ARD1_road, 12) {
+		property {
+			label:					"ARD1";
+		}
+	}
+}
+
 if (roadtype_available("ARD1") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, ARD1_road, 12) {
 		property {
-			label:					"ARD1";
+//			label:					"ARD1";
 			name: 					string(STR_STRING_2, string(STR_NAME_ARD1), string(STR_CLASS_C));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_4, string(STR_NAME_ARD1), string(STR_CONSTRUCTION), string(STR_CLASS_C), string(STR_WHITE));
@@ -4810,10 +5019,24 @@ if (roadtype_available("ARD1") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					IMPROVED ASPHALT ROAD (ARD2)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, ARD2_road, 14) {
+		property {
+			label:					"RDBN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, ARD2_road, 14) {
+		property {
+			label:					"ARD2";
+		}
+	}
+}
+
 if (roadtype_available("ARD2") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, ARD2_road, 14) {
 		property {
-			label:					"ARD2";
+//			label:					"ARD2";
 			name: 					string(STR_STRING_2, string(STR_NAME_ARD0), string(STR_CLASS_B));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_4, string(STR_NAME_ARD0), string(STR_CONSTRUCTION), string(STR_CLASS_B), string(STR_WHITE));
@@ -4848,10 +5071,24 @@ if (roadtype_available("ARD2") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //				IMPROVED ASPHALT ROAD /W STRIPES (ARD3)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, ARD3_road, 15) {
+		property {
+			label:					"RBCN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, ARD3_road, 15) {
+		property {
+			label:					"ARD3";
+		}
+	}
+}
+
 if (roadtype_available("ARD3") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, ARD3_road, 15) {
 		property {
-			label:					"ARD3";
+//			label:					"ARD3";
 			name: 					string(STR_STRING_2, string(STR_NAME_ARD1), string(STR_CLASS_B));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_4, string(STR_NAME_ARD1), string(STR_CONSTRUCTION), string(STR_CLASS_B), string(STR_WHITE));
@@ -4892,10 +5129,24 @@ if (roadtype_available("ARD3") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //			MODERN ASPHALT ROAD (ARD4)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, ARD4_road, 17) {
+		property {
+			label:					"REBN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, ARD4_road, 17) {
+		property {
+			label:					"ARD4";
+		}
+	}
+}
+
 if (roadtype_available("ARD4") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, ARD4_road, 17) {
 		property {
-			label:					"ARD4";
+//			label:					"ARD4";
 			name: 					string(STR_STRING_2, string(STR_NAME_ARD0), string(STR_CLASS_A));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
@@ -4943,10 +5194,24 @@ if (roadtype_available("ARD4") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //			MODERN ASPHALT ROAD /W STRIPES (ARD5)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, ARD5_road, 18) {
+		property {
+			label:					"RCCN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, ARD5_road, 18) {
+		property {
+			label:					"ARD5";
+		}
+	}
+}
+
 if (roadtype_available("ARD5") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, ARD5_road, 18) {
 		property {
-			label:					"ARD5";
+//			label:					"ARD5";
 			name: 					string(STR_STRING_2, string(STR_NAME_ARD1), string(STR_CLASS_A));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
@@ -4995,10 +5260,24 @@ if (roadtype_available("ARD5") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					HIGHWAY (WRD0)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, WRD0_road, 20) {
+		property {
+			label:					"RDCN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, WRD0_road, 20) {
+		property {
+			label:					"WRD0";
+		}
+	}
+}
+
 if (roadtype_available("WRD0") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, WRD0_road, 20) {
 		property {
-			label:					"WRD0";
+//			label:					"WRD0";
 			name: 					string(STR_NAME_WRD0);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
@@ -5043,10 +5322,24 @@ if (roadtype_available("WRD0") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					EXPRESSWAY (WRD1)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, WRD1_road, 21) {
+		property {
+			label:					"RECN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, WRD1_road, 21) {
+		property {
+			label:					"WRD1";
+		}
+	}
+}
+
 if (roadtype_available("WRD1") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, WRD1_road, 21) {
 		property {
-			label:					"WRD1";
+//			label:					"WRD1";
 			name: 					string(STR_NAME_WRD1);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
@@ -5091,10 +5384,24 @@ if (roadtype_available("WRD1") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					URBAN ASPHALT ROAD (URD0)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, URD0_road, 22) {
+		property {
+			label:					"EBBN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, URD0_road, 22) {
+		property {
+			label:					"URD0";
+		}
+	}
+}
+
 if (roadtype_available("URD0") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, URD0_road, 22) {
 		property {
-			label:					"URD0";
+//			label:					"URD0";
 			name: 					string(STR_NAME_URD0);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_3, string(STR_NAME_URD0), string(STR_CONSTRUCTION), string(STR_WHITE));
@@ -5128,10 +5435,24 @@ if (roadtype_available("URD0") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //				URBAN ASPHALT ROAD W/ STRIPES (URD1)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, URD1_road, 24) {
+		property {
+			label:					"ECBN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, URD1_road, 24) {
+		property {
+			label:					"URD1";
+		}
+	}
+}
+
 if (roadtype_available("URD1") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, URD1_road, 24) {
 		property {
-			label:					"URD1";
+//			label:					"URD1";
 			name: 					string(STR_NAME_URD1);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_3, string(STR_NAME_URD1), string(STR_CONSTRUCTION), string(STR_WHITE));
@@ -5165,10 +5486,24 @@ if (roadtype_available("URD1") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //				GRASS VERGE/NATURE STRIP OF THE ROAD (URD2)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, URD2_road, 26) {
+		property {
+			label:					"EDBN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, URD2_road, 26) {
+		property {
+			label:					"URD2";
+		}
+	}
+}
+
 if (roadtype_available("URD2") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, URD2_road, 26) {
 		property {
-			label:					"URD2";
+//			label:					"URD2";
 			name: 					string(STR_NAME_URD2);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_3, string(STR_NAME_URD2), string(STR_CONSTRUCTION), string(STR_WHITE));
@@ -5202,10 +5537,24 @@ if (roadtype_available("URD2") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					PEDESTRIAN ZONE (DRD0)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, DRD0_road, 27) {
+		property {
+			label:					"ZABp";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, DRD0_road, 27) {
+		property {
+			label:					"DRD0";
+		}
+	}
+}
+
 if (param_pedestrian_zone != 0) {
 	item(FEAT_ROADTYPES, DRD0_road, 27) {
 		property {
-			label:					"DRD0";
+//			label:					"DRD0";
 			name: 					string(STR_NAME_DRD0);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
@@ -5249,10 +5598,24 @@ if (param_pedestrian_zone != 0) {
 //===========================================================
 //					PAVING SLABS (DRD1)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, DRD1_road, 28) {
+		property {
+			label:					"IBBN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, DRD1_road, 28) {
+		property {
+			label:					"DRD1";
+		}
+	}
+}
+
 if (roadtype_available("DRD1") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, DRD1_road, 28) {
 		property {
-			label:					"DRD1";
+//			label:					"DRD1";
 			name: 					string(STR_NAME_DRD1);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_3, string(STR_NAME_DRD1), string(STR_CONSTRUCTION), string(STR_WHITE));
@@ -5287,10 +5650,24 @@ if (roadtype_available("DRD1") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					COBBLE STONES ROAD (DRD2)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, DRD2_road, 30) {
+		property {
+			label:					"IABN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, DRD2_road, 30) {
+		property {
+			label:					"DRD2";
+		}
+	}
+}
+
 if (roadtype_available("DRD2") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, DRD2_road, 30) {
 		property {
-			label:					"DRD2";
+//			label:					"DRD2";
 			name: 					string(STR_NAME_DRD2);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_3, string(STR_NAME_DRD2), string(STR_CONSTRUCTION), string(STR_WHITE));
@@ -5324,10 +5701,24 @@ if (roadtype_available("DRD2") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					ISR ROAD (DRD3)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, DRD3_road, 31) {
+		property {
+			label:					"IDBN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, DRD3_road, 31) {
+		property {
+			label:					"DRD3";
+		}
+	}
+}
+
 if (roadtype_available("DRD3") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, DRD3_road, 31) {
 		property {
-			label:					"DRD3";
+//			label:					"DRD3";
 			name: 					string(STR_NAME_DRD3);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
@@ -5371,10 +5762,24 @@ if (roadtype_available("DRD3") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					CEMENT SLAB OF ROAD (DRD4)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, DRD4_road, 32) {
+		property {
+			label:					"ICBN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, DRD4_road, 32) {
+		property {
+			label:					"DRD4";
+		}
+	}
+}
+
 if (roadtype_available("DRD4") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, DRD4_road, 32) {
 		property {
-			label:					"DRD4";
+//			label:					"DRD4";
 			name: 					string(STR_NAME_DRD4);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
@@ -5418,10 +5823,24 @@ if (roadtype_available("DRD4") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //				ASPHALT CONCRETE ROAD (DRD5)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, DRD5_road, 33) {
+		property {
+			label:					"IEBN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, DRD5_road, 33) {
+		property {
+			label:					"DRD5";
+		}
+	}
+}
+
 if (roadtype_available("DRD5") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, DRD5_road, 33) {
 		property {
-			label:					"DRD5";
+//			label:					"DRD5";
 			name: 					string(STR_NAME_DRD5);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_3, string(STR_NAME_DRD5), string(STR_CONSTRUCTION), string(STR_WHITE));
@@ -5459,18 +5878,39 @@ if (roadtype_available("DRD5") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					STONE PAVED ROAD (ELECTRIFIED) (ELRD)
 //===========================================================
+/*
+if (param[0]) {
+	item (FEAT_ROADTYPES, ELRD_road, 0) {
+		property {
+			label:					"REAE";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, ELRD_road, 0) {
+		property {
+			label:					"ELRD";
+		}
+	}
+}
+*/
+
 if (param_disable != 1 ) {
 	item(FEAT_ROADTYPES, ELRD_road, 7) {
 		property {
-			label:					"ELRD";
+//			label:					"SER0";
 			name: 					string(STR_STRING_2, string(STR_NAME_SRD0), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_4, string(STR_NAME_SRD0), string(STR_CONSTRUCTION), string(STR_ELECTRIFIELD), string(STR_WHITE));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ELRD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ELRD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
-			powered_roadtype_list: 			["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			alternative_roadtype_list:		[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
 			introduces_roadtype_list:		["UER0"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			speed_limit:				50 km/h;
@@ -5494,19 +5934,38 @@ if (param_disable != 1 ) {
 //===========================================================
 //					ASPHALT ROAD (ELECTRIFIED) (AER0)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, AER0_road, 11) {
+		property {
+			label:					"RCbE";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, AER0_road, 11) {
+		property {
+			label:					"AER0";
+		}
+	}
+}
+
 if (param_disable != 1 ) {
 if (roadtype_available("AER0") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, AER0_road, 11) {
 		property {
-			label:					"AER0";
+//			label:					"AER0";
 			name: 					string(STR_STRING_3, string(STR_NAME_ARD0), string(STR_CLASS_C), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_5, string(STR_NAME_ARD0), string(STR_CONSTRUCTION), string(STR_CLASS_C), string(STR_ELECTRIFIELD), string(STR_WHITE));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ELRD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ELRD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
-			powered_roadtype_list: 			["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			alternative_roadtype_list:		[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			introduction_date: 			date(1925,01,01);
 			introduces_roadtype_list:		["UER0"];
@@ -5533,19 +5992,38 @@ if (roadtype_available("AER0") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					ASPHALT ELRD W/ STRIPES (AER1)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, AER1_road, 13) {
+		property {
+			label:					"RACE";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, AER1_road, 13) {
+		property {
+			label:					"AER1";
+		}
+	}
+}
+
 if (param_disable != 1 ) {
 if (roadtype_available("AER1") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, AER1_road, 13) {
 		property {
-			label:					"AER1";
+//			label:					"AER1";
 			name: 					string(STR_STRING_3, string(STR_NAME_ARD1), string(STR_CLASS_C), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_5, string(STR_NAME_ARD1), string(STR_CONSTRUCTION), string(STR_CLASS_C), string(STR_ELECTRIFIELD), string(STR_WHITE));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ELRD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ELRD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
-			powered_roadtype_list: 			["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			alternative_roadtype_list:		[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			introduction_date: 			date(1945,01,01);
 			requires_roadtype_list:			["ELRD"];
@@ -5571,19 +6049,38 @@ if (roadtype_available("AER1") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //				IMPROVED ASPHALT ROAD W/ STRIPES (AER3)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, AER3_road, 0) {
+		property {
+			label:					"RBCE";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, AER3_road, 0) {
+		property {
+			label:					"AER3";
+		}
+	}
+}
+
 if (param_disable != 1 ) {
 if (roadtype_available("AER3") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, AER3_road, 16) {
 		property {
-			label:					"AER3";
+//			label:					"AER3";
 			name: 					string(STR_STRING_3, string(STR_NAME_ARD1), string(STR_CLASS_B), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_5, string(STR_NAME_ARD1), string(STR_CONSTRUCTION), string(STR_CLASS_B), string(STR_ELECTRIFIELD), string(STR_WHITE));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ELRD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ELRD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
-			powered_roadtype_list: 			["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			alternative_roadtype_list:		[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			introduction_date: 			date(1960,01,01);
 			introduces_roadtype_list:		["UER1"];
@@ -5610,18 +6107,37 @@ if (roadtype_available("AER3") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //				MODERN ASPHALT ROAD W/ STRIPES (AER5)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, AER5_road, 19) {
+		property {
+			label:					"RCCE";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, AER5_road, 19) {
+		property {
+			label:					"AER5";
+		}
+	}
+}
+
 if (param_disable != 1 ) {
 if (roadtype_available("AER5") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, AER5_road, 19) {
 		property {
-			label:					"AER5";
+//			label:					"AER5";
 			name: 					string(STR_STRING_3, string(STR_NAME_ARD1), string(STR_CLASS_A), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ELRD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ELRD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
-			powered_roadtype_list: 			["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			alternative_roadtype_list:		[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
 			requires_roadtype_list:			["ELRD"];
 			introduction_date: 			date(1975,01,01);
 			construction_cost:			37;
@@ -5664,19 +6180,38 @@ if (roadtype_available("AER5") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //				URBAN ASPHALT ROAD (UER0)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, UER0_road, 23) {
+		property {
+			label:					"EBbE";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, UER0_road, 23) {
+		property {
+			label:					"UER0";
+		}
+	}
+}
+
 if (param_disable != 1 ) {
 if (roadtype_available("UER0") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, UER0_road, 23) {
 		property {
-			label:					"UER0";
+//			label:					"UER0";
 			name: 					string(STR_STRING_2, string(STR_NAME_URD0), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_4, string(STR_NAME_URD0), string(STR_CONSTRUCTION), string(STR_ELECTRIFIELD), string(STR_WHITE));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ELRD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ELRD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
-			powered_roadtype_list: 			["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			alternative_roadtype_list:		[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			construction_cost:			32;
 			maintenance_cost: 			32;
@@ -5700,19 +6235,38 @@ if (roadtype_available("UER0") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //				URBAN ASPHALT ROAD /W STRIPES (UER1)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, UER1_road, 25 {
+		property {
+			label:					"ECbN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, UER1_road, 25) {
+		property {
+			label:					"UER1";
+		}
+	}
+}
+
 if (param_disable != 1 ) {
 if (roadtype_available("UER1") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, UER1_road, 25) {
 		property {
-			label:					"UER1";
+//			label:					"UER1";
 			name: 					string(STR_STRING_2, string(STR_NAME_URD1), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_4, string(STR_NAME_URD1), string(STR_CONSTRUCTION), string(STR_ELECTRIFIELD), string(STR_WHITE));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ELRD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ELRD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
-			powered_roadtype_list: 			["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			alternative_roadtype_list:		[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			construction_cost:			38;
 			maintenance_cost: 			38;
@@ -5736,19 +6290,37 @@ if (roadtype_available("UER1") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //				PAVING SLAB (ELECTRIFIED) (DER1)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, DER1_road, 0) {
+		property {
+			label:					"IBbN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, DER1_road, 0) {
+		property {
+			label:					"DER1";
+		}
+	}
+}
+
 if (param_disable != 1 ) {
 if (roadtype_available("DER1") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_ROADTYPES, DER1_road, 29) {
 		property {
-			label:					"DER1";
+//			label:					"DER1";
 			name: 					string(STR_STRING_2, string(STR_NAME_DRD1), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_ROAD), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_4, string(STR_NAME_DRD1), string(STR_CONSTRUCTION), string(STR_ELECTRIFIELD), string(STR_WHITE));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ELRD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ELRD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
-			powered_roadtype_list: 			["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"IAbE", "IBbE", "ICbE", "IDbE", "IEbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			alternative_roadtype_list:		[
+								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			requires_roadtype_list:			["ELRD"];
 			introduction_date:			date(1935,01,01);
@@ -5777,18 +6349,32 @@ if (roadtype_available("DER1") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //					TRAM TRACK (RAIL)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, RAIL_road, 0) {
+		property {
+			label:					"RAaN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, RAIL_road, 0) {
+		property {
+			label:					"RAIL";
+		}
+	}
+}
+
 if (param_disable != 1 ) {
 	item(FEAT_TRAMTYPES, RAIL_tram, 34) {
 		property {
-			label:					"RAIL";
+//			label:					"RAIL";
 			name: 					string(STR_NAME_RAIL);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_TRAM), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_3, string(STR_NAME_RAIL), string(STR_CONSTRUCTION), string(STR_WHITE));
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_TRAM);
 			autoreplace_text: 			string(STR_AUTOREPLACE_TRAM);
 			new_engine_text: 			string(STR_NEW_ENGINE_TRAM);
-			powered_tramtype_list: 			["RAIL", "NBAN", "NIAN", "ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
-			alternative_tramtype_list:		["RAIL", "NBAN", "NIAN"];
+			powered_tramtype_list: 			["RABN", "RABE", "IABN", "IABE", "RAIL", "NBAN", "NIAN", "ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
+			alternative_tramtype_list:		["RABN", "IABN", "RAIL", "NBAN", "NIAN"];
 			speed_limit:				80 km/h;
 			construction_cost: 			14;
 			maintenance_cost:			14;
@@ -5807,9 +6393,23 @@ if (param_disable != 1 ) {
 //===========================================================
 //					TRAM TRACK (ELECTRIFIED) (ELRL)
 //===========================================================
-	item(FEAT_TRAMTYPES, ELRL_tram, 35) {
+if (param[0]) {
+	item (FEAT_ROADTYPES, ELRL_road, 0) {
+		property {
+			label:					"RAbE";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, ELRL_road, 0) {
 		property {
 			label:					"ELRL";
+		}
+	}
+}
+
+	item(FEAT_TRAMTYPES, ELRL_tram, 35) {
+		property {
+//			label:					"ELRL";
 			name: 					string(STR_STRING_2, string(STR_NAME_RAIL), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_TRAM), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_4, string(STR_NAME_RAIL), string(STR_CONSTRUCTION), string(STR_ELECTRIFIELD), string(STR_WHITE));
@@ -5838,11 +6438,25 @@ if (param_disable != 1 ) {
 //===========================================================
 //				MODERN TRAM TRACK (NBAN)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, NBAN_road, 0) {
+		property {
+			label:					"RBAN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, NBAN_road, 0) {
+		property {
+			label:					"NBAN";
+		}
+	}
+}
+
 if (param_disable != 1 ) {
 if (tramtype_available("NBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_TRAMTYPES, NBAN_tram, 36) {
 		property {
-			label:					"NBAN";
+//			label:					"NBAN";
 			name: 					string(STR_NAME_NBAN);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_TRAM), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_2, string(STR_NAME_NBAN), string(STR_CONSTRUCTION));
@@ -5871,10 +6485,24 @@ if (tramtype_available("NBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //				MODERN TRAM TRACK (ELECTRIFIED) (NBAE)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, NBAE_road, 0) {
+		property {
+			label:					"RBbE";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, NBAE_road, 0) {
+		property {
+			label:					"NBAE";
+		}
+	}
+}
+
 if (tramtype_available("NBAE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_TRAMTYPES, NBAE_tram, 37) {
 		property {
-			label:					"NBAE";
+//			label:					"NBAE";
 			name: 					string(STR_STRING_2, string(STR_NAME_NBAN), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_TRAM), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_3, string(STR_NAME_NBAN), string(STR_CONSTRUCTION), string(STR_ELECTRIFIELD));
@@ -5905,10 +6533,24 @@ if (tramtype_available("NBAE") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //				URBAN TRAM TRACK (ELECTRIFIED) (NUAE)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, NUAE_road, 0) {
+		property {
+			label:					"EAbE";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, NUAE_road, 0) {
+		property {
+			label:					"NUAE";
+		}
+	}
+}
+
 if (tramtype_available("NUAE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_TRAMTYPES, NUAE_tram, 38) {
 		property {
-			label:					"NUAE";
+//			label:					"NUAE";
 			name: 					string(STR_STRING_2, string(STR_NAME_NUAN), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_TRAM), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_4, string(STR_NAME_NUAN), string(STR_CONSTRUCTION), string(STR_ELECTRIFIELD), string(STR_WHITE));
@@ -5940,10 +6582,24 @@ if (tramtype_available("NUAE") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //			MODERN URBAN TRAM TRACK (ELECTRIFIED) (NUBE)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, NUBE_road, 0) {
+		property {
+			label:					"EBbE";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, NUBE_road, 0) {
+		property {
+			label:					"NUBE";
+		}
+	}
+}
+
 if (tramtype_available("NUBE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_TRAMTYPES, NUBE_tram, 39) {
 		property {
-			label:  				"NUBE";
+//			label:  				"NUBE";
 			name: 					string(STR_STRING_2, string(STR_NAME_NUBN), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_TRAM), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_4, string(STR_NAME_NUBN), string(STR_CONSTRUCTION), string(STR_ELECTRIFIELD), string(STR_WHITE));
@@ -5974,10 +6630,24 @@ if (tramtype_available("NUBE") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //			GREEN TRAM TRACK (ELECTRIFIED) (NUCE)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, NUCE_road, 0) {
+		property {
+			label:					"ECbE";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, NUCE_road, 0) {
+		property {
+			label:					"NUCE";
+		}
+	}
+}
+
 if (tramtype_available("NUCE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_TRAMTYPES, NUCE_tram, 40) {
 		property {
-			label:  				"NUCE";
+//			label:  				"NUCE";
 			name: 					string(STR_STRING_2, string(STR_NAME_NUCN), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_TRAM), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_4, string(STR_NAME_NUCN), string(STR_CONSTRUCTION), string(STR_ELECTRIFIELD), string(STR_WHITE));
@@ -6008,11 +6678,25 @@ if (tramtype_available("NUCE") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //			ISR TRAM TRACK (NIAN)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, NIAN_road, 0) {
+		property {
+			label:					"IABN";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, NIAN_road, 0) {
+		property {
+			label:					"NIAN";
+		}
+	}
+}
+
 if (param_disable != 1 ) {
 if (tramtype_available("NIAN") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_TRAMTYPES, NIAN_tram, 41) {
 		property {
-			label: 					"NIAN";
+//			label: 					"NIAN";
 			name: 					string(STR_NAME_NIAN);
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_TRAM), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_3, string(STR_NAME_NIAN), string(STR_CONSTRUCTION), string(STR_WHITE));
@@ -6042,10 +6726,24 @@ if (tramtype_available("NIAN") || loading_stage == LOADING_STAGE_RESERVE) {
 //===========================================================
 //			ISR TRAM TRACK (ELECTRIFIED) (NIAE)
 //===========================================================
+if (param[0]) {
+	item (FEAT_ROADTYPES, NIAE_road, 0) {
+		property {
+			label:					"IAbE";
+		}
+	}
+} else {
+	item (FEAT_ROADTYPES, NIAE_road, 0) {
+		property {
+			label:					"NIAE";
+		}
+	}
+}
+
 if (tramtype_available("NIAE") || loading_stage == LOADING_STAGE_RESERVE) {
 	item(FEAT_TRAMTYPES, NIAE_tram, 42) {
 		property {
-			label:					"NIAE";
+//			label:					"NIAE";
 			name: 					string(STR_STRING_2, string(STR_NAME_NIAN), string(STR_ELECTRIFIELD));
 			toolbar_caption: 			string(STR_STRING_2, string(STR_TOOLBAR_CAPTION_TRAM), string(STR_CONSTRUCTION));
 			menu_text: 				string(STR_STRING_4, string(STR_NAME_NIAN), string(STR_CONSTRUCTION), string(STR_ELECTRIFIELD), string(STR_WHITE));
