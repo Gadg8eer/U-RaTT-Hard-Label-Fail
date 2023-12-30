@@ -4385,7 +4385,7 @@ if (param[0]) {
 												"pABP", "pABS", "PIPE"];
 				alternative_roadtype_list:		[
 												"RABN"
-												];
+												"];
 				roadtype_flags:				 bitmask(ROADTYPE_FLAG_HIDDEN);
 			}
 		} else { //disable_item(FEAT_ROADTYPES, item_country_asphalt_road2, 0);
@@ -4401,16 +4401,16 @@ if (param[0]) {
 												"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
 												"DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
 												"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
-												];
+												"];
 				alternative_roadtype_list:		[
 												"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
 												"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
 												"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
 												"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
-												];
+												"];
 				introduces_roadtype_list:		[
 												"ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "DRD2"
-												];
+												"];
 				roadtype_flags:				bitmask(ROADTYPE_FLAG_HIDDEN);
 				speed_limit:				(speed_limit_ROAD) km/h;
 				sort_order:				0;
@@ -4471,15 +4471,16 @@ if (roadtype_available("ORD0") || loading_stage == LOADING_STAGE_RESERVE) {
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
 			powered_roadtype_list: 			[
-								
 								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
 								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
 								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
 								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
 								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			roadtype_flags:				bitmask(ROADTYPE_FLAG_NO_LEVEL_CROSSING, ROADTYPE_FLAG_NO_HOUSES);
 			construction_cost:			3;
 			maintenance_cost: 			3;
@@ -4532,14 +4533,18 @@ if (roadtype_available("ORD1") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_NO_LEVEL_CROSSING, ROADTYPE_FLAG_NO_HOUSES);
 			construction_cost:			4;
 			maintenance_cost: 			4;
@@ -4593,14 +4598,18 @@ if (roadtype_available("ORD2") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			construction_cost:			5;
 			maintenance_cost: 			5;
 			sort_order: 				3;
@@ -4643,14 +4652,18 @@ if (roadtype_available("ORD3") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_NO_HOUSES, ROADTYPE_FLAG_NO_LEVEL_CROSSING);
 			construction_cost:			6;
 			maintenance_cost: 			6;
@@ -4703,14 +4716,18 @@ if (roadtype_available("ORD4") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_NO_HOUSES);
 			construction_cost:			9;
 			maintenance_cost: 			9;
@@ -4764,14 +4781,18 @@ if (roadtype_available("SRD0") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			speed_limit: 				50 km/h;
 			construction_cost:			12;
 			maintenance_cost: 			12;
@@ -4815,14 +4836,18 @@ if (roadtype_available("SRD1") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			speed_limit: 				64 km/h;
 			introduction_date: 			date(1900,01,01);
 			construction_cost:			16;
@@ -4866,14 +4891,18 @@ if (roadtype_available("SRD2") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			roadtype_flags:				bitmask(ROADTYPE_FLAG_NO_HOUSES);
 			speed_limit: 				88 km/h;
 			introduction_date: 			date(1955,01,01);
@@ -4928,14 +4957,18 @@ if (roadtype_available("ARD0") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			introduces_roadtype_list:		["URD0"];
 			introduction_date: 			date(1925,01,01);
 			construction_cost:			15;
@@ -4986,14 +5019,18 @@ if (roadtype_available("ARD1") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			introduction_date: 			date(1945,01,01);
 			construction_cost:			17;
 			maintenance_cost: 			17;
@@ -5043,14 +5080,18 @@ if (roadtype_available("ARD2") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			introduction_date: 			date(1960,01,01);
 			construction_cost:			19;
 			maintenance_cost: 			19;
@@ -5095,14 +5136,18 @@ if (roadtype_available("ARD3") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			introduces_roadtype_list:		["URD1"];
 			introduction_date: 			date(1960,01,01);
 			construction_cost:			21;
@@ -5152,14 +5197,18 @@ if (roadtype_available("ARD4") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			introduction_date: 			date(1975,01,01);
 			construction_cost:			27;
 			maintenance_cost: 			27;
@@ -5217,14 +5266,18 @@ if (roadtype_available("ARD5") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			introduces_roadtype_list:		["URD2"];
 			introduction_date: 			date(1975,01,01);
 			construction_cost:			29;
@@ -5283,14 +5336,18 @@ if (roadtype_available("WRD0") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_NO_HOUSES, ROADTYPE_FLAG_NO_LEVEL_CROSSING);
 			roadtype_extra_flags:		bitmask(ROADTYPE_EXTRA_FLAG_NO_TOWN_MODIFY);
 			introduction_date: 			date(1960,01,01);
@@ -5345,14 +5402,18 @@ if (roadtype_available("WRD1") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_NO_LEVEL_CROSSING, ROADTYPE_FLAG_NO_HOUSES);
 			roadtype_extra_flags:		bitmask(ROADTYPE_EXTRA_FLAG_NO_TOWN_MODIFY);
 			introduction_date: 			date(1980,01,01);
@@ -5408,14 +5469,18 @@ if (roadtype_available("URD0") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			construction_cost:			24;
 			maintenance_cost: 			24;
 			sort_order: 				22;
@@ -5459,14 +5524,18 @@ if (roadtype_available("URD1") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			construction_cost:			30;
 			maintenance_cost: 			30;
 			sort_order: 				24;
@@ -5510,14 +5579,18 @@ if (roadtype_available("URD2") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			construction_cost:			36;
 			maintenance_cost: 			36;
 			sort_order: 				26;
@@ -5560,14 +5633,18 @@ if (param_pedestrian_zone != 0) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
     		autoreplace_text: 				string(STR_AUTOREPLACE_ROAD);
 			new_engine_text:			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_NO_LEVEL_CROSSING);
 			introduction_date:			date(1960,01,01);
 			speed_limit:				(speed_limit_DRD0) km/h;
@@ -5622,14 +5699,18 @@ if (roadtype_available("DRD1") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
             		introduction_date:			date(1935,01,01);
 			construction_cost:			18;
 			maintenance_cost: 			18;
@@ -5674,14 +5755,18 @@ if (roadtype_available("DRD2") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			construction_cost:			18;
 			maintenance_cost: 			18;
 			sort_order: 				30;
@@ -5724,14 +5809,18 @@ if (roadtype_available("DRD3") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_NO_HOUSES);
 			introduction_date: 			date(1900,01,01);
 			construction_cost:			24;
@@ -5785,14 +5874,18 @@ if (roadtype_available("DRD4") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_NO_HOUSES);
 			introduction_date: 			date(1930,01,01);
 			construction_cost:			30;
@@ -5847,14 +5940,18 @@ if (roadtype_available("DRD5") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_ROAD);
 			autoreplace_text: 			string(STR_AUTOREPLACE_ROAD);
 			new_engine_text: 			string(STR_NEW_ENGINE_ROAD);
-			powered_roadtype_list: 			["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
-			alternative_roadtype_list:		["ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
-								 "ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
-								 "DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
-								 "ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+			powered_roadtype_list: 			[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
+			alternative_roadtype_list:		[
+								"ROAD", "ORD0", "ORD1", "ORD2", "ORD3", "ORD4", "SRD0", "SRD1", "SRD2",
+								"ARD0", "ARD1", "ARD2", "ARD3", "ARD4", "ARD5", "WRD0", "WRD1", "URD0", "URD1", "URD2",
+								"DRD0", "DRD1", "DRD2", "DRD3", "DRD4", "DRD5", 
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			introduction_date: 			date(1960,01,01);
 			construction_cost:			36;
 			maintenance_cost: 			36;
@@ -5906,11 +6003,13 @@ if (param_disable != 1 ) {
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
 			powered_roadtype_list: 			[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			alternative_roadtype_list:		[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
 								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			introduces_roadtype_list:		["UER0"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			speed_limit:				50 km/h;
@@ -5961,11 +6060,13 @@ if (roadtype_available("AER0") || loading_stage == LOADING_STAGE_RESERVE) {
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
 			powered_roadtype_list: 			[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			alternative_roadtype_list:		[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
 								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			introduction_date: 			date(1925,01,01);
 			introduces_roadtype_list:		["UER0"];
@@ -6019,11 +6120,13 @@ if (roadtype_available("AER1") || loading_stage == LOADING_STAGE_RESERVE) {
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
 			powered_roadtype_list: 			[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			alternative_roadtype_list:		[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
 								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			introduction_date: 			date(1945,01,01);
 			requires_roadtype_list:			["ELRD"];
@@ -6076,11 +6179,13 @@ if (roadtype_available("AER3") || loading_stage == LOADING_STAGE_RESERVE) {
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
 			powered_roadtype_list: 			[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			alternative_roadtype_list:		[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
 								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								"];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			introduction_date: 			date(1960,01,01);
 			introduces_roadtype_list:		["UER1"];
@@ -6133,11 +6238,13 @@ if (roadtype_available("AER5") || loading_stage == LOADING_STAGE_RESERVE) {
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
 			powered_roadtype_list: 			[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								];
 			alternative_roadtype_list:		[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
 								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								];
 			requires_roadtype_list:			["ELRD"];
 			introduction_date: 			date(1975,01,01);
 			construction_cost:			37;
@@ -6207,11 +6314,13 @@ if (roadtype_available("UER0") || loading_stage == LOADING_STAGE_RESERVE) {
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
 			powered_roadtype_list: 			[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								];
 			alternative_roadtype_list:		[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
 								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			construction_cost:			32;
 			maintenance_cost: 			32;
@@ -6262,11 +6371,13 @@ if (roadtype_available("UER1") || loading_stage == LOADING_STAGE_RESERVE) {
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
 			powered_roadtype_list: 			[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								];
 			alternative_roadtype_list:		[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
 								"PAbE", "PBbE", "PCbE", "PDbE", "PEbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			construction_cost:			38;
 			maintenance_cost: 			38;
@@ -6317,10 +6428,12 @@ if (roadtype_available("DER1") || loading_stage == LOADING_STAGE_RESERVE) {
 			new_engine_text: 			string(STR_NEW_ENGINE_ELRD);
 			powered_roadtype_list: 			[
 								"IAbE", "IBbE", "ICbE", "IDbE", "IEbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								];
 			alternative_roadtype_list:		[
 								"RAbE", "RBbE", "RCbE", "RDbE", "REbE",
-								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"];
+								"ELRD", "AER0", "AER1", "AER3", "AER5", "UER0", "UER1", "DER1"
+								];
 			roadtype_flags: 			bitmask(ROADTYPE_FLAG_CATENARY);
 			requires_roadtype_list:			["ELRD"];
 			introduction_date:			date(1935,01,01);
@@ -6373,8 +6486,102 @@ if (param_disable != 1 ) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_TRAM);
 			autoreplace_text: 			string(STR_AUTOREPLACE_TRAM);
 			new_engine_text: 			string(STR_NEW_ENGINE_TRAM);
-			powered_tramtype_list: 			["RABN", "RABE", "IABN", "IABE", "RAIL", "NBAN", "NIAN", "ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
-			alternative_tramtype_list:		["RABN", "IABN", "RAIL", "NBAN", "NIAN"];
+			powered_tramtype_list: 			[
+								"RAaN", "RAAN", "RABN",
+								"RBaN", "RBAN", "RBBN",
+								"RCaN", "RCAN", "RCBN",
+								"RDaN", "RDAN", "RDBN",
+								"REaN", "REAN", "REBN",
+								"rAaN", "rAAN", "rABN",
+								"rBaN", "rBAN", "rBBN",
+								"rCaN", "rCAN", "rCBN",
+								"rDaN", "rDAN", "rDBN",
+								"rEaN", "rEAN", "rEBN",
+								"IAaN", "IAAN", "IABN",
+								"IBaN", "IBAN", "IBBN",
+								"ICaN", "ICAN", "ICBN",
+								"IDaN", "IDAN", "IDBN",
+								"IEaN", "IEAN", "IEBN",
+								"RtBN", "rtBN",
+								"RAaE", "RAAE", "RABE",
+								"RBaE", "RBAE", "RBBE",
+								"RCaE", "RCAE", "RCBE",
+								"RDaE", "RDAE", "RDBE",
+								"REaE", "REAE", "REBE",
+								"rAaE", "rAAE", "rABE",
+								"rBaE", "rBAE", "rBBE",
+								"rCaE", "rCAE", "rCBE",
+								"rDaE", "rDAE", "rDBE",
+								"rEaE", "rEAE", "rEBE",
+								"IAaE", "IAAE", "IABE",
+								"IBaE", "IBAE", "IBBE",
+								"ICaE", "ICAE", "ICBE",
+								"IDaE", "IDAE", "IDBE",
+								"IEaE", "IEAE", "IEBE",
+								"RtBE", "rtBE",
+								"RAaG", "RAAG", "RABG",
+								"RBaG", "RBAG", "RBBG",
+								"RCaG", "RCAG", "RCBG",
+								"RDaG", "RDAG", "RDBG",
+								"REaG", "REAG", "REBG",
+								"rAaG", "rAAG", "rABG",
+								"rBaG", "rBAG", "rBBG",
+								"rCaG", "rCAG", "rCBG",
+								"rDaG", "rDAG", "rDBG",
+								"rEaG", "rEAG", "rEBG",
+								"IAaG", "IAAG", "IABG",
+								"IBaG", "IBAG", "IBBG",
+								"ICaG", "ICAG", "ICBG",
+								"IDaG", "IDAG", "IDBG",
+								"IEaG", "IEAG", "IEBG",
+								"RtBG", "rtBG",
+								"RAaZ", "RAAZ", "RABZ",
+								"RBaZ", "RBAZ", "RBBZ",
+								"RCaZ", "RCAZ", "RCBZ",
+								"RDaZ", "RDAZ", "RDBZ",
+								"REaZ", "REAZ", "REBZ",
+								"rAaZ", "rAAZ", "rABZ",
+								"rBaZ", "rBAz", "rBBZ",
+								"rCaZ", "rCAZ", "rCBZ",
+								"rDaZ", "rDAZ", "rDBZ",
+								"rEaZ", "rEAZ", "rEBZ",
+								"IAaZ", "IAAZ", "IABZ",
+								"IBaZ", "IBAZ", "IBBZ",
+								"ICaZ", "ICAZ", "ICBZ",
+								"IDaZ", "IDAZ", "IDBZ",
+								"IEaZ", "IEAZ", "IEBZ",
+								"RtBZ", "rtBZ",
+								"RAa3", "RAA3", "RAB3",
+								"RBa3", "RBA3", "RBB3",
+								"RCa3", "RCA3", "RCB3",
+								"RDa3", "RDA3", "RDB3",
+								"REa3", "REA3", "REB3",
+								"RtB3", "rtB3",
+								"RAa4", "RAA4", "RAB4",
+								"RBa4", "RBA4", "RBB4",
+								"RCa4", "RCA4", "RCB4",
+								"RDa4", "RDA4", "RDB4",
+								"REa4", "REA4", "REB4",
+								"RtB4", "rtB4",
+								"RAaC", "RAAC", "RABC",
+								"RBaC", "RBAC", "RBBC",
+								"RCaC", "RCAC", "RCBC",
+								"RDaC", "RDAC", "RDBC",
+								"REaC", "REAC", "REBC",
+								"RtBC", "rtBC",
+								// Legacy
+								"RAIL", "NBAN", "NIAN", "ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"//,
+								];
+			//					["RABN", "RABE", "IABN", "IABE", "RAIL", "NBAN", "NIAN", "ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
+			alternative_tramtype_list:		[
+								"RAaN", "RAAN", "RABN", "RAbN",
+								"RBaN", "RBAN", "RBBN", "RBbN",
+								"RCaN", "RCAN", "RCBN", "RCbN",
+								"RDaN", "RDAN", "RDBN", "RDbN",
+								"REaN", "REAN", "REBN", "REbN",
+								// Legacy
+								"RAIL", "NBAN"//,
+								];
 			speed_limit:				80 km/h;
 			construction_cost: 			14;
 			maintenance_cost:			14;
@@ -6416,8 +6623,21 @@ if (param[0]) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_TRAM_EL);
 			autoreplace_text: 			string(STR_AUTOREPLACE_TRAM_EL);
 			new_engine_text: 			string(STR_NEW_ENGINE_TRAM_EL);
-			powered_tramtype_list: 			["ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
-			alternative_tramtype_list:		["ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
+			powered_tramtype_list: 			[
+								"RAAE", "RABE", "RAbE", "RACE",
+								"rAAE", "rABE", "rAbE", "rACE",
+								"RtBE", "RtbE",
+								"rtBE", "rtbE",
+								"RAAZ", "RABZ", "RAbZ", "RACZ",
+								"rAAZ", "rABZ", "rAbZ", "rACZ",
+								"RtBZ", "RtbZ",
+								"rtBZ", "rtbZ",
+								// Legacy
+								"ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
+			alternative_tramtype_list:		[
+								"RAAE", "RABE", "RAbE", "RACE",
+								// Legacy
+								"ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
 			tramtype_flags: 			bitmask(TRAMTYPE_FLAG_CATENARY);
 			speed_limit:				80 km/h;
 			construction_cost: 			20;
@@ -6442,12 +6662,14 @@ if (param[0]) {
 	item (FEAT_ROADTYPES, NBAN_road, 0) {
 		property {
 			label:					"RBAN";
+			requires_tramtype_list:			["RAaN", "RABN"];
 		}
 	}
 } else {
 	item (FEAT_ROADTYPES, NBAN_road, 0) {
 		property {
 			label:					"NBAN";
+			requires_tramtype_list:			["RAIL"];
 		}
 	}
 }
@@ -6463,9 +6685,101 @@ if (tramtype_available("NBAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_TRAM);
 			autoreplace_text: 			string(STR_AUTOREPLACE_TRAM);
 			new_engine_text: 			string(STR_NEW_ENGINE_TRAM);
-			powered_tramtype_list: 			["RAIL", "NBAN", "NIAN", "ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
-			alternative_tramtype_list:		["RAIL", "NBAN", "NIAN"];
-			requires_tramtype_list:			["RAIL"];
+			powered_tramtype_list: 			[
+								"RAaN", "RAAN", "RABN",
+								"RBaN", "RBAN", "RBBN",
+								"RCaN", "RCAN", "RCBN",
+								"RDaN", "RDAN", "RDBN",
+								"REaN", "REAN", "REBN",
+								"rAaN", "rAAN", "rABN",
+								"rBaN", "rBAN", "rBBN",
+								"rCaN", "rCAN", "rCBN",
+								"rDaN", "rDAN", "rDBN",
+								"rEaN", "rEAN", "rEBN",
+								"IAaN", "IAAN", "IABN",
+								"IBaN", "IBAN", "IBBN",
+								"ICaN", "ICAN", "ICBN",
+								"IDaN", "IDAN", "IDBN",
+								"IEaN", "IEAN", "IEBN",
+								"RtBN", "rtBN",
+								"RAaE", "RAAE", "RABE",
+								"RBaE", "RBAE", "RBBE",
+								"RCaE", "RCAE", "RCBE",
+								"RDaE", "RDAE", "RDBE",
+								"REaE", "REAE", "REBE",
+								"rAaE", "rAAE", "rABE",
+								"rBaE", "rBAE", "rBBE",
+								"rCaE", "rCAE", "rCBE",
+								"rDaE", "rDAE", "rDBE",
+								"rEaE", "rEAE", "rEBE",
+								"IAaE", "IAAE", "IABE",
+								"IBaE", "IBAE", "IBBE",
+								"ICaE", "ICAE", "ICBE",
+								"IDaE", "IDAE", "IDBE",
+								"IEaE", "IEAE", "IEBE",
+								"RtBE", "rtBE",
+								"RAaG", "RAAG", "RABG",
+								"RBaG", "RBAG", "RBBG",
+								"RCaG", "RCAG", "RCBG",
+								"RDaG", "RDAG", "RDBG",
+								"REaG", "REAG", "REBG",
+								"rAaG", "rAAG", "rABG",
+								"rBaG", "rBAG", "rBBG",
+								"rCaG", "rCAG", "rCBG",
+								"rDaG", "rDAG", "rDBG",
+								"rEaG", "rEAG", "rEBG",
+								"IAaG", "IAAG", "IABG",
+								"IBaG", "IBAG", "IBBG",
+								"ICaG", "ICAG", "ICBG",
+								"IDaG", "IDAG", "IDBG",
+								"IEaG", "IEAG", "IEBG",
+								"RtBG", "rtBG",
+								"RAaZ", "RAAZ", "RABZ",
+								"RBaZ", "RBAZ", "RBBZ",
+								"RCaZ", "RCAZ", "RCBZ",
+								"RDaZ", "RDAZ", "RDBZ",
+								"REaZ", "REAZ", "REBZ",
+								"rAaZ", "rAAZ", "rABZ",
+								"rBaZ", "rBAz", "rBBZ",
+								"rCaZ", "rCAZ", "rCBZ",
+								"rDaZ", "rDAZ", "rDBZ",
+								"rEaZ", "rEAZ", "rEBZ",
+								"IAaZ", "IAAZ", "IABZ",
+								"IBaZ", "IBAZ", "IBBZ",
+								"ICaZ", "ICAZ", "ICBZ",
+								"IDaZ", "IDAZ", "IDBZ",
+								"IEaZ", "IEAZ", "IEBZ",
+								"RtBZ", "rtBZ",
+								"RAa3", "RAA3", "RAB3",
+								"RBa3", "RBA3", "RBB3",
+								"RCa3", "RCA3", "RCB3",
+								"RDa3", "RDA3", "RDB3",
+								"REa3", "REA3", "REB3",
+								"RtB3", "rtB3",
+								"RAa4", "RAA4", "RAB4",
+								"RBa4", "RBA4", "RBB4",
+								"RCa4", "RCA4", "RCB4",
+								"RDa4", "RDA4", "RDB4",
+								"REa4", "REA4", "REB4",
+								"RtB4", "rtB4",
+								"RAaC", "RAAC", "RABC",
+								"RBaC", "RBAC", "RBBC",
+								"RCaC", "RCAC", "RCBC",
+								"RDaC", "RDAC", "RDBC",
+								"REaC", "REAC", "REBC",
+								"RtBC", "rtBC",
+								// Legacy
+								"RAIL", "NBAN", "NIAN", "ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"//,
+								];
+			//					["RAIL", "NBAN", "NIAN", "ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
+			alternative_tramtype_list:		[
+								"RAaN", "RAAN", "RABN",
+								// Legacy
+								"RAIL", "NBAN", "NIAN"//,
+								];
+			//					["RAIL", "NBAN", "NIAN"];
+			//requires_tramtype_list:			
+			//					["RAIL"];
 			introduction_date:			date(1960,01,01);
 			construction_cost: 			30;
 			maintenance_cost:			30;
@@ -6489,12 +6803,14 @@ if (param[0]) {
 	item (FEAT_ROADTYPES, NBAE_road, 0) {
 		property {
 			label:					"RBbE";
+			requires_tramtype_list:			["ELRL", "RBAN"];
 		}
 	}
 } else {
 	item (FEAT_ROADTYPES, NBAE_road, 0) {
 		property {
 			label:					"NBAE";
+			requires_tramtype_list:			["ELRL"];
 		}
 	}
 }
@@ -6509,10 +6825,39 @@ if (tramtype_available("NBAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_TRAM_EL);
 			autoreplace_text: 			string(STR_AUTOREPLACE_TRAM_EL);
 			new_engine_text: 			string(STR_NEW_ENGINE_TRAM_EL);
-			powered_tramtype_list: 			["ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
-			alternative_tramtype_list:		["ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
+			powered_tramtype_list: 			[
+								"RAAE", "RABE", "RAbE", "RACE",
+								"RBAE", "RBBE", "RBbE", "RBCE",
+								"RCAE", "RCBE", "RCbE", "RCCE",
+								"RDAE", "RDBE", "RDbE", "RDCE",
+								"REAE", "REBE", "REbE", "RECE",
+								"rAAE", "rABE", "rAbE", "rACE",
+								"rBAE", "rBBE", "rBbE", "rBCE",
+								"rCAE", "rCBE", "rCbE", "rCCE",
+								"rDAE", "rDBE", "rDbE", "rDCE",
+								"rEAE", "rEBE", "rEbE", "rECE",
+								"RAAZ", "RABZ", "RAbZ", "RACZ",
+								"RBAZ", "RBBZ", "RBbZ", "RBCZ",
+								"RCAZ", "RCBZ", "RCbZ", "RCCZ",
+								"RDAZ", "RDBZ", "RDbZ", "RDCZ",
+								"REAZ", "REBZ", "REbZ", "RECZ",
+								"rAAZ", "rABZ", "rAbZ", "rACZ",
+								"rBAZ", "rBBZ", "rBbZ", "rBCZ",
+								"rCAZ", "rCBZ", "rCbZ", "rCCZ",
+								"rDAZ", "rDBZ", "rDbZ", "rDCZ",
+								"rEAZ", "rEBZ", "rEbZ", "rECZ",
+								"RtBZ", "RtbZ",
+								"rtBZ", "rtbZ",
+								// Legacy
+								"ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
+			alternative_tramtype_list:		[
+								"RAAE", "RABE", "RAbE", "RACE",
+								// Legacy
+								"ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"
+								];
 			tramtype_flags: 			bitmask(TRAMTYPE_FLAG_CATENARY);
-			requires_tramtype_list:			["ELRL"];
+			//requires_tramtype_list:			
+			//					["ELRL"];
 			introduction_date:			date(1960,01,01);
 			construction_cost: 			36;
 			maintenance_cost:			36;
@@ -6557,8 +6902,35 @@ if (tramtype_available("NUAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_TRAM_EL);
 			autoreplace_text: 			string(STR_AUTOREPLACE_TRAM_EL);
 			new_engine_text: 			string(STR_NEW_ENGINE_TRAM_EL);
-			powered_tramtype_list: 			["ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
-			alternative_tramtype_list:		["ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
+			powered_tramtype_list: 			[
+								"RAAE", "RABE", "RAbE", "RACE",
+								"RBAE", "RBBE", "RBbE", "RBCE",
+								"RCAE", "RCBE", "RCbE", "RCCE",
+								"RDAE", "RDBE", "RDbE", "RDCE",
+								"REAE", "REBE", "REbE", "RECE",
+								"rAAE", "rABE", "rAbE", "rACE",
+								"rBAE", "rBBE", "rBbE", "rBCE",
+								"rCAE", "rCBE", "rCbE", "rCCE",
+								"rDAE", "rDBE", "rDbE", "rDCE",
+								"rEAE", "rEBE", "rEbE", "rECE",
+								"RAAZ", "RABZ", "RAbZ", "RACZ",
+								"RBAZ", "RBBZ", "RBbZ", "RBCZ",
+								"RCAZ", "RCBZ", "RCbZ", "RCCZ",
+								"RDAZ", "RDBZ", "RDbZ", "RDCZ",
+								"REAZ", "REBZ", "REbZ", "RECZ",
+								"rAAZ", "rABZ", "rAbZ", "rACZ",
+								"rBAZ", "rBBZ", "rBbZ", "rBCZ",
+								"rCAZ", "rCBZ", "rCbZ", "rCCZ",
+								"rDAZ", "rDBZ", "rDbZ", "rDCZ",
+								"rEAZ", "rEBZ", "rEbZ", "rECZ",
+								"RtBZ", "RtbZ",
+								"rtBZ", "rtbZ",
+								// Legacy
+								"ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
+			alternative_tramtype_list:		[
+								"RAAE", "RABE", "RAbE", "RACE",
+								// Legacy
+								"ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
 			tramtype_flags: 			bitmask(TRAMTYPE_FLAG_CATENARY);
 			requires_tramtype_list:			["ELRL"];
 			introduction_date:			date(1900,01,01);
@@ -6606,8 +6978,37 @@ if (tramtype_available("NUBE") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_TRAM_EL);
 			autoreplace_text: 			string(STR_AUTOREPLACE_TRAM_EL);
 			new_engine_text: 			string(STR_NEW_ENGINE_TRAM_EL);
-			powered_tramtype_list: 			["ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
-			alternative_tramtype_list:		["ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
+			powered_tramtype_list: 			[
+								"RAAE", "RABE", "RAbE", "RACE",
+								"RBAE", "RBBE", "RBbE", "RBCE",
+								"RCAE", "RCBE", "RCbE", "RCCE",
+								"RDAE", "RDBE", "RDbE", "RDCE",
+								"REAE", "REBE", "REbE", "RECE",
+								"rAAE", "rABE", "rAbE", "rACE",
+								"rBAE", "rBBE", "rBbE", "rBCE",
+								"rCAE", "rCBE", "rCbE", "rCCE",
+								"rDAE", "rDBE", "rDbE", "rDCE",
+								"rEAE", "rEBE", "rEbE", "rECE",
+								"RAAZ", "RABZ", "RAbZ", "RACZ",
+								"RBAZ", "RBBZ", "RBbZ", "RBCZ",
+								"RCAZ", "RCBZ", "RCbZ", "RCCZ",
+								"RDAZ", "RDBZ", "RDbZ", "RDCZ",
+								"REAZ", "REBZ", "REbZ", "RECZ",
+								"rAAZ", "rABZ", "rAbZ", "rACZ",
+								"rBAZ", "rBBZ", "rBbZ", "rBCZ",
+								"rCAZ", "rCBZ", "rCbZ", "rCCZ",
+								"rDAZ", "rDBZ", "rDbZ", "rDCZ",
+								"rEAZ", "rEBZ", "rEbZ", "rECZ",
+								"RtBZ", "RtbZ",
+								"rtBZ", "rtbZ",
+								// Legacy
+								"ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"
+								];
+			alternative_tramtype_list:		[
+								"RAAE", "RABE", "RAbE", "RACE",
+								// Legacy
+								"ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"
+								];
 			tramtype_flags: 			bitmask(TRAMTYPE_FLAG_CATENARY);
 			requires_tramtype_list:			["ELRL"];
 			introduction_date:			date(1980,01,01);
@@ -6654,8 +7055,37 @@ if (tramtype_available("NUCE") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_TRAM_EL);
 			autoreplace_text: 			string(STR_AUTOREPLACE_TRAM_EL);
 			new_engine_text: 			string(STR_NEW_ENGINE_TRAM_EL);
-			powered_tramtype_list: 			["ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
-			alternative_tramtype_list:		["ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
+			powered_tramtype_list: 			[
+								"RABE", "RAbE", "RACE", "RAcE",
+								"RBBE", "RBbE", "RBCE", "RBcE",
+								"RCBE", "RCbE", "RCCE", "RCcE",
+								"RDBE", "RDbE", "RDCE", "RDcE",
+								"REBE", "REbE", "RECE", "REcE",
+								"rABE", "rAbE", "rACE", "rAcE",
+								"rBBE", "rBbE", "rBCE", "rBcE",
+								"rCBE", "rCbE", "rCCE", "rCcE",
+								"rDBE", "rDbE", "rDCE", "rDcE",
+								"rEBE", "rEbE", "rECE", "rEcE",
+								"RABZ", "RAbZ", "RACZ", "RAcZ",
+								"RBBZ", "RBbZ", "RBbZ", "RBcZ",
+								"RCBZ", "RCbZ", "RCbZ", "RCcZ",
+								"RDBZ", "RDbZ", "RDbZ", "RDcZ",
+								"REBZ", "REbZ", "REbZ", "REcZ",
+								"rABZ", "rAbZ", "rAbZ", "rAcZ",
+								"rBBZ", "rBbZ", "rBbZ", "rBcZ",
+								"rCBZ", "rCbZ", "rCbZ", "rCcZ",
+								"rDBZ", "rDbZ", "rDbZ", "rDcZ",
+								"rEBZ", "rEbZ", "rEbZ", "rEcZ",
+								"RtBZ", "RtbZ",
+								"rtBZ", "rtbZ",
+								// Legacy
+								"ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"
+								];
+			alternative_tramtype_list:		[
+								"RAAE", "RABE", "RAbE", "RACE",
+								// Legacy
+								"ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"
+								];
 			tramtype_flags: 			bitmask(TRAMTYPE_FLAG_CATENARY);
 			requires_tramtype_list:			["ELRL"];
 			introduction_date:			date(1980,01,01);
@@ -6703,8 +7133,77 @@ if (tramtype_available("NIAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_TRAM);
 			autoreplace_text: 			string(STR_AUTOREPLACE_TRAM);
 			new_engine_text: 			string(STR_NEW_ENGINE_TRAM);
-			powered_tramtype_list: 			["RAIL", "NBAN", "NIAN", "ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"];
-			alternative_tramtype_list:		["RAIL", "NBAN", "NIAN"];
+			powered_tramtype_list: 			[
+								"rAaN", "rAAN", "rABN",
+								"rBaN", "rBAN", "rBBN",
+								"rCaN", "rCAN", "rCBN",
+								"rDaN", "rDAN", "rDBN",
+								"rEaN", "rEAN", "rEBN",
+								"IAaN", "IAAN", "IABN",
+								"IBaN", "IBAN", "IBBN",
+								"ICaN", "ICAN", "ICBN",
+								"IDaN", "IDAN", "IDBN",
+								"IEaN", "IEAN", "IEBN",
+								"RtBN", "rtBN",
+								"rAaE", "rAAE", "rABE",
+								"rBaE", "rBAE", "rBBE",
+								"rCaE", "rCAE", "rCBE",
+								"rDaE", "rDAE", "rDBE",
+								"rEaE", "rEAE", "rEBE",
+								"IAaE", "IAAE", "IABE",
+								"IBaE", "IBAE", "IBBE",
+								"ICaE", "ICAE", "ICBE",
+								"IDaE", "IDAE", "IDBE",
+								"IEaE", "IEAE", "IEBE",
+								"RtBE", "rtBE",
+								"rAaG", "rAAG", "rABG",
+								"rBaG", "rBAG", "rBBG",
+								"rCaG", "rCAG", "rCBG",
+								"rDaG", "rDAG", "rDBG",
+								"rEaG", "rEAG", "rEBG",
+								"IAaG", "IAAG", "IABG",
+								"IBaG", "IBAG", "IBBG",
+								"ICaG", "ICAG", "ICBG",
+								"IDaG", "IDAG", "IDBG",
+								"IEaG", "IEAG", "IEBG",
+								"RtBG", "rtBG",
+								"rAaZ", "rAAZ", "rABZ",
+								"rBaZ", "rBAz", "rBBZ",
+								"rCaZ", "rCAZ", "rCBZ",
+								"rDaZ", "rDAZ", "rDBZ",
+								"rEaZ", "rEAZ", "rEBZ",
+								"IAaZ", "IAAZ", "IABZ",
+								"IBaZ", "IBAZ", "IBBZ",
+								"ICaZ", "ICAZ", "ICBZ",
+								"IDaZ", "IDAZ", "IDBZ",
+								"IEaZ", "IEAZ", "IEBZ",
+								"RtBZ", "rtBZ",
+								"RAa3", "RAA3", "RAB3",
+								"RBa3", "RBA3", "RBB3",
+								"RCa3", "RCA3", "RCB3",
+								"RDa3", "RDA3", "RDB3",
+								"REa3", "REA3", "REB3",
+								"RtB3", "rtB3",
+								"RAa4", "RAA4", "RAB4",
+								"RBa4", "RBA4", "RBB4",
+								"RCa4", "RCA4", "RCB4",
+								"RDa4", "RDA4", "RDB4",
+								"REa4", "REA4", "REB4",
+								"RtB4", "rtB4",
+								"RAaC", "RAAC", "RABC",
+								"RBaC", "RBAC", "RBBC",
+								"RCaC", "RCAC", "RCBC",
+								"RDaC", "RDAC", "RDBC",
+								"REaC", "REAC", "REBC",
+								"RtBC", "rtBC",
+								// Legacy
+								"RAIL", "NBAN", "NIAN", "ELRL", "NBAE", "NUAE", "NUBE", "NUCE", "NIAE"
+								];
+			alternative_tramtype_list:		[
+								"RAaN", "RAAN", "RABN",
+								// Legacy
+								"RAIL", "NBAN", "NIAN"
+								];
 			requires_tramtype_list:			["RAIL"];
 			introduction_date:			date(1900,01,01);
 			speed_limit: 				60 km/h;
@@ -6714,7 +7213,7 @@ if (tramtype_available("NIAN") || loading_stage == LOADING_STAGE_RESERVE) {
 			}
 		graphics {
 			track_overlay: 					switch_RAIL_overlay;
-			underlay: 					switch_NIAN_underlay;
+			//underlay: 					switch_NIAN_underlay;
 			depots: 					switch_NIAN_depots;
 			bridge_surfaces: 				switch_NIAN_bridge;
 			tunnels:					switch_NIAN_tunnels;
@@ -6750,8 +7249,37 @@ if (tramtype_available("NIAE") || loading_stage == LOADING_STAGE_RESERVE) {
 			build_window_caption: 			string(STR_BUILD_WINDOW_CAPTION_TRAM_EL);
 			autoreplace_text: 			string(STR_AUTOREPLACE_TRAM_EL);
 			new_engine_text: 			string(STR_NEW_ENGINE_TRAM_EL);
-			powered_tramtype_list: 			["ELRL", "NBAE", "NCAE", "NUAE", "NUBE", "NUCE", "NIAE"];
-			alternative_tramtype_list:		["ELRL", "NBAE", "NCAE", "NUAE", "NUBE", "NUCE", "NIAE"];
+			powered_tramtype_list: 			[
+								"IAAE", "IABE", "IAbE", "IACE",
+								"IBAE", "IBBE", "IBbE", "IBCE",
+								"ICAE", "ICBE", "ICbE", "ICCE",
+								"IDAE", "IDBE", "IDbE", "IDCE",
+								"IEAE", "IEBE", "IEbE", "IECE",
+								"rAAE", "rABE", "rAbE", "rACE",
+								"rBAE", "rBBE", "rBbE", "rBCE",
+								"rCAE", "rCBE", "rCbE", "rCCE",
+								"rDAE", "rDBE", "rDbE", "rDCE",
+								"rEAE", "rEBE", "rEbE", "rECE",
+								"RAAZ", "IABZ", "IAbZ", "IACZ",
+								"RBAZ", "IBBZ", "IBbZ", "IBCZ",
+								"RCAZ", "ICBZ", "ICbZ", "ICCZ",
+								"RDAZ", "IDBZ", "IDbZ", "IDCZ",
+								"REAZ", "IEBZ", "IEbZ", "IECZ",
+								"rAAZ", "rABZ", "rAbZ", "rACZ",
+								"rBAZ", "rBBZ", "rBbZ", "rBCZ",
+								"rCAZ", "rCBZ", "rCbZ", "rCCZ",
+								"rDAZ", "rDBZ", "rDbZ", "rDCZ",
+								"rEAZ", "rEBZ", "rEbZ", "rECZ",
+								"RtBZ", "RtbZ",
+								"rtBZ", "rtbZ",
+								// Legacy
+								"ELRL", "NBAE", "NCAE", "NUAE", "NUBE", "NUCE", "NIAE"//,
+								];
+			alternative_tramtype_list:		[
+								"RAAE", "RABE", "RAbE", "RACE",
+								// Legacy
+								"ELRL", "NBAE", "NCAE", "NUAE", "NUBE", "NUCE", "NIAE"//,
+								];
 			tramtype_flags: 			bitmask(TRAMTYPE_FLAG_CATENARY);
 			requires_tramtype_list:			["ELRL"];
 			introduction_date:			date(1900,01,01);
