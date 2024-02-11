@@ -4530,7 +4530,7 @@ if (roadtype_available("ORD0") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ORD0_bridge;
 			roadstops: 					switch_ORD0_roadstops;
 			tunnels:					switch_ORD0_tunnels;
-			//oneway:						oneway_SIGN_2;
+			direction_markings:						oneway_SIGN_2;
 			gui:						switch_ORD0_gui;
 			}
 		}
@@ -4621,7 +4621,7 @@ if (roadtype_available("ORD1") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ORD0_bridge;
 			roadstops: 					switch_ORD2_roadstops;
 			tunnels:					switch_ORD1_tunnels;
-			//oneway:						oneway_SIGN_2;
+			direction_markings:						oneway_SIGN_2;
 			gui:						switch_ORD1_gui;
 			}
 		}
@@ -4703,7 +4703,7 @@ if (roadtype_available("ORD2") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ORD0_bridge;
 			roadstops: 					switch_ORD2_roadstops;
 			tunnels:					switch_ORD2_tunnels;
-			//oneway:						oneway_SIGN_2;
+			direction_markings:						oneway_SIGN_2;
 			gui:						switch_ORD2_gui;
 			}
 		}
@@ -4794,7 +4794,7 @@ if (roadtype_available("ORD3") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ORD3_bridge;
 			roadstops: 					switch_ORD3_roadstops;
 			tunnels:					switch_ORD3_tunnels;
-			//oneway:						oneway_SIGN_2;
+			direction_markings:						oneway_SIGN_2;
 			gui:						switch_ORD3_gui;
 			}
 		}
@@ -4885,7 +4885,7 @@ if (roadtype_available("ORD4") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ORD4_bridge;
 			roadstops: 					switch_ORD4_roadstops;
 			tunnels:					switch_ORD4_tunnels;
-			//oneway:						oneway_SIGN_2;
+			direction_markings:						oneway_SIGN_2;
 			gui:						switch_ORD4_gui;
 			}
 		}
@@ -4967,7 +4967,7 @@ if (roadtype_available("SRD0") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_SRD0_bridge;
 			roadstops: 					switch_SRD0_roadstops;
 			tunnels:					switch_SRD0_tunnels;
-			//oneway:						oneway_SIGN_1;
+			direction_markings:						oneway_SIGN_1;
 			gui:						switch_SRD0_gui;
 			}
 		}
@@ -5050,7 +5050,7 @@ if (roadtype_available("SRD1") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_SRD1_bridge;
 			roadstops: 					switch_SRD1_roadstops;
 			tunnels:					switch_SRD1_tunnels;
-			//oneway:						oneway_SIGN_0;
+			direction_markings:						oneway_SIGN_0;
 			gui:						switch_SRD1_gui;
 			}
 		}
@@ -5142,7 +5142,7 @@ if (roadtype_available("SRD2") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_SRD2_bridge;
 			roadstops: 					switch_SRD2_roadstops;
 			tunnels:					switch_SRD2_tunnels;
-			//oneway:						oneway_SIGN_0;
+			direction_markings:						oneway_SIGN_0;
 			gui:						switch_SRD2_gui;
 			}
 		}
@@ -5195,7 +5195,7 @@ if (roadtype_available("ARD0") || loading_stage == LOADING_STAGE_RESERVE) {
 			sort_order: 				10;
 			speed_limit:				(speed_limit_ARD0) km/h;
 			}
-	if (param_road_available == 0) {
+	if ((param_road_available == 0) && (param[3] >= 1)) {
 		property {
 			roadtype_flags:				bitmask(ROADTYPE_FLAG_TOWN_BUILD);
 				}
@@ -5206,7 +5206,7 @@ if (roadtype_available("ARD0") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ARD0_bridge;
 			roadstops: 					switch_ARD0_roadstops;
 			tunnels:					switch_ARD0_tunnels;
-			//oneway:						oneway_ARROWS_2;
+			direction_markings:						oneway_ARROWS_2;
 			gui:						switch_ARD0_gui;
 			}
 		}
@@ -5256,18 +5256,13 @@ if (roadtype_available("ARD1") || loading_stage == LOADING_STAGE_RESERVE) {
 			sort_order: 				12;
 			speed_limit:				(speed_limit_ARD1) km/h;
 			}
-	if ((param_road_available == 0) && (param[3] == 0)) {
-		property {
-			roadtype_flags:				bitmask(ROADTYPE_FLAG_TOWN_BUILD);
-				}
-			}
 		graphics {
 			underlay: 					switch_ARD1_underlay_style;
 			depots: 					switch_ARD1_depots;
 			bridge_surfaces: 				switch_ARD1_bridge_style;
 			roadstops: 					switch_ARD1_roadstops;
 			tunnels:					switch_ARD1_tunnels;
-			//oneway:						oneway_ARROWS_2;
+			direction_markings:						oneway_ARROWS_2;
 			gui:						switch_ARD1_gui;
 			}
 		}
@@ -5323,7 +5318,7 @@ if (roadtype_available("ARD2") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ARD2_bridge;
 			roadstops: 					switch_ARD2_roadstops;
 			tunnels:					switch_ARD2_tunnels;
-			//oneway:						oneway_ARROWS_1;
+			direction_markings:						oneway_ARROWS_1;
 			gui:						switch_ARD2_gui;
 			}
 		}
@@ -5385,7 +5380,7 @@ if (roadtype_available("ARD3") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ARD3_bridge_style;
 			roadstops: 					switch_ARD3_roadstops;
 			tunnels:					switch_ARD3_tunnels;
-			//oneway:						oneway_ARROWS_1;
+			direction_markings:						oneway_ARROWS_1;
 			gui:						switch_ARD3_gui;
 			}
 		}
@@ -5454,7 +5449,7 @@ if (roadtype_available("ARD4") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ARD4_bridge;
 			roadstops: 					switch_ARD4_roadstops;
 			tunnels:					switch_ARD4_tunnels;
-			//oneway:						oneway_ARROWS_0;
+			direction_markings:						oneway_ARROWS_0;
 			gui:						switch_ARD4_gui;
 			}
 		}
@@ -5524,7 +5519,7 @@ if (roadtype_available("ARD5") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ARD5_bridge;
 			roadstops: 					switch_ARD5_roadstops;
 			tunnels:					switch_ARD5_tunnels;
-			//oneway:						oneway_ARROWS_0;
+			direction_markings:						oneway_ARROWS_0;
 			gui:						switch_ARD5_gui;
 			}
 		}
@@ -5590,7 +5585,7 @@ if (roadtype_available("WRD0") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_WRD0_bridge;
 			roadstops: 					switch_WRD0_roadstops;
 			tunnels:					switch_WRD0_tunnels;
-			//oneway:						oneway_ARROWS_1;
+			direction_markings:						oneway_ARROWS_1;
 			gui: 						switch_WRD0_gui;
 			}
 		}
@@ -5656,7 +5651,7 @@ if (roadtype_available("WRD1") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_WRD1_bridge;
 			roadstops: 					switch_WRD1_roadstops;
 			tunnels:					switch_WRD1_tunnels;
-			//oneway:						oneway_ARROWS_0;
+			direction_markings:						oneway_ARROWS_0;
 			gui:						switch_WRD1_gui;
 			}
 		}
@@ -5705,13 +5700,19 @@ if (roadtype_available("URD0") || loading_stage == LOADING_STAGE_RESERVE) {
 			sort_order: 				22;
 			speed_limit:				(speed_limit_URD0) km/h;
 			}
+	if ((param_road_available == 0) && (param[3] == 0)) {
+		property {
+			roadtype_flags:				bitmask(ROADTYPE_FLAG_TOWN_BUILD);
+			introduction_date:			date(1925,01,01);
+				}
+			}
 		graphics {
 			underlay: 					switch_URD0_underlay;
 			depots: 					switch_URD0_depots;
 			bridge_surfaces: 				switch_ARD0_bridge;
 			roadstops: 					switch_URD0_roadstops;
 			tunnels:					switch_ARD0_tunnels_1;
-			//oneway:						oneway_ARROWS_2;
+			direction_markings:						oneway_ARROWS_2;
 			gui:						switch_URD0_gui;
 			}
 		}
@@ -5760,13 +5761,19 @@ if (roadtype_available("URD1") || loading_stage == LOADING_STAGE_RESERVE) {
 			sort_order: 				24;
 			speed_limit:				(speed_limit_URD1) km/h;
 			}
+	if ((param_road_available == 0) && (param[3] == 0)) {
+		property {
+			roadtype_flags:				bitmask(ROADTYPE_FLAG_TOWN_BUILD);
+			introduction_date:			date(1960,01,01);
+				}
+			}
 		graphics {
 			underlay: 					switch_URD1_underlay;
 			depots: 					switch_URD1_depots;
 			bridge_surfaces: 				switch_URD1_bridge_style;
 			roadstops: 					switch_URD1_roadstops;
 			tunnels:					switch_URD1_tunnels;
-			//oneway:						oneway_ARROWS_1;
+			direction_markings:						oneway_ARROWS_1;
 			gui:						switch_URD1_gui;
 			}
 		}
@@ -5821,7 +5828,7 @@ if (roadtype_available("URD2") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_URD2_bridge;
 			roadstops: 					switch_URD2_roadstops;
 			tunnels:					switch_URD2_tunnels_style;
-			//oneway:						oneway_ARROWS_0;
+			direction_markings:						oneway_ARROWS_0;
 			gui:						switch_URD2_gui;
 			}
 		}
@@ -5886,7 +5893,7 @@ if (param_pedestrian_zone != 0) {
 			bridge_surfaces: 				switch_DRD0_bridge;
 			roadstops: 					switch_DRD0_roadstops;
 			tunnels:					switch_DRD0_tunnels;
-			//oneway:						oneway_ARROWS_SIGN_0;
+			direction_markings:						oneway_ARROWS_SIGN_0;
 			gui:						switch_DRD0_gui;
 			}
 		}
@@ -5942,7 +5949,7 @@ if (roadtype_available("DRD1") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_DRD1_bridge;
 			roadstops: 					switch_DRD1_roadstops;
 			tunnels:					switch_DRD1_tunnels;
-			//oneway:						oneway_SIGN_1;
+			direction_markings:						oneway_SIGN_1;
 			gui:						switch_DRD1_gui;
 			}
 		}
@@ -5997,7 +6004,7 @@ if (roadtype_available("DRD2") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_DRD2_bridge;
 			roadstops: 					switch_DRD2_roadstops;
 			tunnels:					switch_DRD2_tunnels;
-			//oneway:						oneway_SIGN_0;
+			direction_markings:						oneway_SIGN_0;
 			gui:						switch_DRD2_gui;
 			}
 		}
@@ -6062,7 +6069,7 @@ if (roadtype_available("DRD3") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_DRD3_bridge;
 			roadstops: 					switch_DRD3_roadstops;
 			tunnels:					switch_DRD3_tunnels;
-			//oneway:						oneway_ARROWS_SIGN_1;
+			direction_markings:						oneway_ARROWS_SIGN_1;
 			gui:						switch_DRD3_gui;
 			}
 		}
@@ -6127,7 +6134,7 @@ if (roadtype_available("DRD4") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_DRD4_bridge;
 			roadstops: 					switch_DRD4_roadstops;
 			tunnels:					switch_DRD4_tunnels;
-			//oneway:						oneway_SIGN_0;
+			direction_markings:						oneway_SIGN_0;
 			gui:						switch_DRD4_gui;
 			}
 		}
@@ -6183,7 +6190,7 @@ if (roadtype_available("DRD5") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_DRD5_bridge;
 			roadstops: 					switch_DRD5_roadstops;
 			tunnels:					switch_DRD5_tunnels;
-			//oneway:						oneway_ARROWS_SIGN_2;
+			direction_markings:						oneway_ARROWS_SIGN_2;
 			gui:						switch_DRD5_gui;
 			}
 		}
@@ -6242,7 +6249,7 @@ if (param_disable != 1 ) {
 			bridge_surfaces: 				switch_SRD0_bridge;
 			roadstops: 					switch_SRD0_roadstops;
 			tunnels:					switch_SRD0_tunnels;
-			//oneway:						oneway_SIGN_1;
+			direction_markings:						oneway_SIGN_1;
 			catenary_back: 					catenary_back_wood;
 			catenary_front: 				catenary_ELRD_front_wood;
 			gui:						switch_ELRD_gui;
@@ -6301,7 +6308,7 @@ if (roadtype_available("AER0") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ARD0_bridge;
 			roadstops: 					switch_ARD0_roadstops;
 			tunnels:					switch_ARD0_tunnels;
-			//oneway:						oneway_ARROWS_2;
+			direction_markings:						oneway_ARROWS_2;
 			catenary_back: 					catenary_back_wood;
 			catenary_front: 				catenary_ELRD_front_wood;
 			gui:						switch_AER0_gui;
@@ -6360,7 +6367,7 @@ if (roadtype_available("AER1") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ARD1_bridge_style;
 			roadstops: 					switch_ARD1_roadstops;
 			tunnels:					switch_ARD1_tunnels;
-			//oneway:						oneway_ARROWS_2;
+			direction_markings:						oneway_ARROWS_2;
 			catenary_back: 					catenary_back_steel;
 			catenary_front: 				catenary_ELRD_front_steel;
 			gui:						switch_AER1_gui;
@@ -6420,7 +6427,7 @@ if (roadtype_available("AER3") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ARD3_bridge_style;
 			roadstops: 					switch_ARD3_roadstops;
 			tunnels:					switch_ARD3_tunnels;
-			//oneway:						oneway_ARROWS_1;
+			direction_markings:						oneway_ARROWS_1;
 			catenary_back: 					catenary_back_steel;
 			catenary_front: 				catenary_ELRD_front_steel;
 			gui:						switch_AER3_gui;
@@ -6495,7 +6502,7 @@ if (roadtype_available("AER5") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ARD5_bridge;
 			roadstops: 					switch_ARD5_roadstops;
 			tunnels:					switch_ARD5_tunnels;
-			//oneway:						oneway_ARROWS_0;
+			direction_markings:						oneway_ARROWS_0;
 			catenary_back: 					catenary_back_white;
 			catenary_front: 				catenary_ELRD_front_white;
 			gui:						switch_AER5_gui;
@@ -6552,7 +6559,7 @@ if (roadtype_available("UER0") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_ARD0_bridge;
 			roadstops: 					switch_URD0_roadstops;
 			tunnels:					switch_ARD0_tunnels_1;
-			//oneway:						oneway_ARROWS_2;
+			direction_markings:						oneway_ARROWS_2;
 			catenary_back: 					catenary_back_steel;
 			catenary_front: 				catenary_ELRD_front_steel;
 			gui:						switch_UER0_gui;
@@ -6609,7 +6616,7 @@ if (roadtype_available("UER1") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_URD1_bridge_style;
 			roadstops: 					switch_URD1_roadstops;
 			tunnels:					switch_URD1_tunnels;
-			//oneway:						oneway_ARROWS_1;
+			direction_markings:						oneway_ARROWS_1;
 			catenary_back: 					catenary_back_white;
 			catenary_front: 				catenary_ELRD_front_white;
 			gui:						switch_UER1_gui;
@@ -6667,7 +6674,7 @@ if (roadtype_available("DER1") || loading_stage == LOADING_STAGE_RESERVE) {
 			bridge_surfaces: 				switch_DRD1_bridge;
 			roadstops: 					switch_DRD1_roadstops;
 			tunnels:					switch_DRD1_tunnels;
-			//oneway:						oneway_SIGN_0;
+			direction_markings:						oneway_SIGN_0;
 			catenary_back: 					catenary_back_steel;
 			catenary_front: 				catenary_ELRD_front_steel;
 			gui:						switch_DER1_gui;
